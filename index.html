@@ -333,6 +333,8 @@
   footer{padding:30px 0 50px;text-align:center;}
   footer p{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.03em;}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/css/intlTelInput.css">
+<style>.iti{width:100%;display:block;}</style>
 </head>
 <body>
 
@@ -384,9 +386,9 @@
             </div>
             <div class="field">
               <label for="f-whatsapp">WhatsApp</label>
-              <input type="tel" id="f-whatsapp" name="whatsapp" autocomplete="tel" placeholder="+51 9xx xxx xxx">
+              <input type="tel" id="f-whatsapp" name="whatsapp" autocomplete="tel" placeholder="Número de teléfono">
             </div>
-            <p class="hint">Completa correo y/o WhatsApp — con uno de los dos es suficiente.</p>
+            <p class="hint">Completa correo y/o WhatsApp — con uno de los dos es suficiente. Elige tu país en el desplegable de la izquierda.</p>
 
             <!-- honeypot anti-spam, no tocar -->
             <input type="text" name="empresa" class="honey" tabindex="-1" autocomplete="off">
@@ -655,6 +657,7 @@
   <p>© Dr. Sergio Wong Gildemeister · Medicina Funcional</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/js/intlTelInput.min.js"></script>
 <script>
 (function(){
   // ⚠️ Reemplaza esta URL por la de tu Google Apps Script Web App (ver instrucciones)
@@ -666,9 +669,18 @@
   var formStage = document.getElementById('form-stage');
   var successStage = document.getElementById('success-stage');
   var planContent = document.getElementById('plan-content');
+  var phoneInput = document.getElementById('f-whatsapp');
 
-  function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-  function isValidPhone(v){ return /^[+]?[0-9\s-]{6,15}$/.test(v); }
+  var iti = window.intlTelInput(phoneInput, {
+    initialCountry: 'pe',
+    preferredCountries: ['pe', 'mx', 'co', 'cl', 'ec', 'us', 'es'],
+    separateDialCode: true,
+    loadUtils: function(){ return import('https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/js/utils.js'); }
+  });
+
+  function isValidEmail(v){
+    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/.test(v);
+  }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -677,12 +689,12 @@
 
     var nombre = form.nombre.value.trim();
     var correo = form.correo.value.trim();
-    var whatsapp = form.whatsapp.value.trim();
+    var whatsappTyped = phoneInput.value.trim();
     var honey = form.empresa.value.trim();
 
     form.nombre.classList.remove('err');
     form.correo.classList.remove('err');
-    form.whatsapp.classList.remove('err');
+    phoneInput.classList.remove('err');
 
     if(!nombre){
       form.nombre.classList.add('err');
@@ -691,10 +703,10 @@
       return;
     }
     var hasEmail = correo.length > 0;
-    var hasPhone = whatsapp.length > 0;
+    var hasPhone = whatsappTyped.length > 0;
     if(!hasEmail && !hasPhone){
       form.correo.classList.add('err');
-      form.whatsapp.classList.add('err');
+      phoneInput.classList.add('err');
       msg.textContent = 'Déjanos tu correo o tu WhatsApp (al menos uno).';
       msg.className = 'form-msg error';
       return;
@@ -705,11 +717,15 @@
       msg.className = 'form-msg error';
       return;
     }
-    if(hasPhone && !isValidPhone(whatsapp)){
-      form.whatsapp.classList.add('err');
-      msg.textContent = 'Ese número no parece válido.';
-      msg.className = 'form-msg error';
-      return;
+    var whatsappFinal = '';
+    if(hasPhone){
+      if(!iti.isValidNumber()){
+        phoneInput.classList.add('err');
+        msg.textContent = 'Revisa tu número — no parece válido para el país seleccionado.';
+        msg.className = 'form-msg error';
+        return;
+      }
+      whatsappFinal = iti.getNumber();
     }
 
     // honeypot: si está lleno, es un bot -> desbloqueamos sin enviar nada
@@ -724,8 +740,8 @@
     var payload = {
       nombre: nombre,
       correo: correo,
-      whatsapp: whatsapp,
-      fuente: 'Landing Plan GLP-1',
+      whatsapp: whatsappFinal,
+      fuente: 'Landing Guia GLP-1',
       fecha: new Date().toISOString()
     };
 
