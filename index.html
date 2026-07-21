@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan de Alimentación GLP-1 — Dr. Sergio Wong</title>
+<title>Guía de Alimentación GLP-1 — Dr. Sergio Wong</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FBF9F4'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%231F7A6C' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23E17C3A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,9 +122,6 @@
   .teaser-list{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;}
   @media (max-width:520px){.teaser-list{grid-template-columns:1fr;}}
   .teaser-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink-soft);font-weight:500;}
-  .teaser-list li::before{
-    content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;
-  }
 
   /* ---------- LEAD FORM CARD ---------- */
   .form-card{
@@ -226,6 +223,10 @@
     margin-top:18px;background:var(--orange-tint);border-radius:12px;padding:16px 18px;
     font-size:13.5px;color:var(--ink-soft);
   }
+  .disclaimer{
+    margin:36px auto 0;background:var(--orange-tint);border-radius:12px;padding:16px 20px;
+    font-size:13.5px;color:var(--ink-soft);
+  }
   .quote-box{
     margin-top:28px;border-left:3px solid var(--teal);padding:4px 0 4px 20px;
     font-style:italic;color:var(--ink-soft);font-size:15px;
@@ -243,6 +244,16 @@
   }
   .avoid-card h3{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px;color:var(--orange-deep);}
   .avoid-card p{font-size:13.5px;margin:0;color:var(--ink-soft);}
+  .icon-badge{
+    width:40px;height:40px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:12px;
+  }
+  .icon-badge svg{width:20px;height:20px;}
+  .icon-badge.teal{background:var(--teal-tint);color:var(--teal-deep);}
+  .icon-badge.orange{background:var(--orange-tint);color:var(--orange-deep);}
+  .cat-icon{width:16px;height:16px;color:var(--teal-deep);flex-shrink:0;}
+  .teaser-list li svg{width:16px;height:16px;color:var(--teal);flex-shrink:0;}
 
   /* menu accordion */
   .menu-list{display:flex;flex-direction:column;gap:10px;}
@@ -271,7 +282,7 @@
   /* shopping list */
   .shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;}
   @media (max-width:640px){.shop-grid{grid-template-columns:1fr;}}
-  .shop-cat h3{font-size:13px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600;}
+  .shop-cat h3{font-size:13px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600;display:flex;align-items:center;gap:8px;}
   .chips{display:flex;flex-wrap:wrap;gap:8px;}
   .chip{
     background:var(--surface-2);border:1px solid var(--line);border-radius:999px;
@@ -336,30 +347,31 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Medicina funcional · Plan gratuito</div>
+      <div class="eyebrow">Medicina funcional · Guía gratuita</div>
       <h1>Come con criterio médico mientras tu tratamiento <em>GLP-1</em> hace lo suyo.</h1>
-      <p class="lead">El plan de alimentación que el Dr. Sergio Wong diseñó para pacientes en tirzepatida o semaglutida: qué priorizar en el plato, qué evitar y cómo comer sin pasar hambre ni perder masa muscular.</p>
+      <p class="lead">Recomendaciones de alimentación que el Dr. Sergio Wong preparó para pacientes en tirzepatida o semaglutida: qué priorizar en el plato, qué evitar y cómo comer sin pasar hambre ni perder masa muscular.</p>
       <div class="trust-row"><span class="dot"></span> Elaborado por Dr. Sergio Wong Gildemeister — Nutrición basada en ciencia</div>
 
       <ul class="teaser-list">
-        <li>7 reglas de oro del tratamiento</li>
-        <li>Método del plato, paso a paso</li>
-        <li>Menú de ejemplo — 7 días completos</li>
-        <li>Lista de compras y sustituciones</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>7 reglas de oro del tratamiento</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>Método del plato, paso a paso</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Menú de ejemplo — 7 días completos</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H6"/></svg>Lista de compras y sustituciones</li>
       </ul>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:16px;max-width:46ch;">Esta es una guía con recomendaciones generales — no reemplaza una consulta médica. Tu plan 100% personalizado te lo arma el Dr. Wong.</p>
     </div>
 
     <div>
       <div class="donut-peek" aria-hidden="true">
         <div class="donut-ring"></div>
         <div class="donut-hole"></div>
-        <div class="lock-chip">🔒 Plan bloqueado</div>
+        <div class="lock-chip">🔒 Guía bloqueada</div>
       </div>
 
       <div class="form-card" id="form-card">
         <div id="form-stage">
-          <h2>Descarga tu plan gratis</h2>
-          <p class="sub">Déjanos al menos un dato de contacto y desbloqueas el plan completo al instante.</p>
+          <h2>Descarga la guía gratis</h2>
+          <p class="sub">Déjanos al menos un dato de contacto y desbloqueas la guía completa al instante.</p>
 
           <form id="lead-form" novalidate>
             <div class="field">
@@ -379,16 +391,16 @@
             <!-- honeypot anti-spam, no tocar -->
             <input type="text" name="empresa" class="honey" tabindex="-1" autocomplete="off">
 
-            <button type="submit" class="submit-btn" id="submit-btn">Ver mi plan de alimentación</button>
+            <button type="submit" class="submit-btn" id="submit-btn">Ver la guía de alimentación</button>
             <div class="form-msg" id="form-msg" aria-live="polite"></div>
-            <p class="consent">Al enviar tus datos aceptas que el equipo del Dr. Wong te contacte con información relacionada a este plan y a consultas de medicina funcional.</p>
+            <p class="consent">Al enviar tus datos aceptas que el equipo del Dr. Wong te contacte con información relacionada a esta guía y a consultas de medicina funcional.</p>
           </form>
         </div>
 
         <div id="success-stage" class="success-panel" style="display:none;">
           <div class="check">✓</div>
-          <h2 style="font-size:19px;">¡Listo! Tu plan está desbloqueado</h2>
-          <p class="sub" style="margin-bottom:0;">Bájalo hasta el final para agendar tu consulta directo por WhatsApp.</p>
+          <h2 style="font-size:19px;">¡Listo! Ya tienes acceso a la guía</h2>
+          <p class="sub" style="margin-bottom:0;">Bájala hasta el final para agendar tu consulta directo por WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -397,6 +409,10 @@
 
 <!-- ================= GATED CONTENT ================= -->
 <main id="plan-content" class="gated">
+
+  <div class="wrap">
+    <div class="disclaimer reveal">Estas son recomendaciones generales de alimentación, no un plan médico personalizado. Tu plan individual — ajustado a tu peso, tus exámenes y tu evolución — te lo arma el Dr. Wong en consulta.</div>
+  </div>
 
   <section class="section">
     <div class="wrap">
@@ -460,14 +476,17 @@
       </div>
       <div class="avoid-grid reveal">
         <div class="avoid-card">
+          <div class="icon-badge orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l3-4h10l3 4"/><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M12 8v12"/></svg></div>
           <h3>Ultraprocesados</h3>
           <p>Jamonadas, hot dogs, snacks de bolsa, nuggets, hamburguesas industriales, galletas integrales comerciales, barras energéticas, pan de molde, tostadas. El "light" o "natural" en la etiqueta no los hace mejores.</p>
         </div>
         <div class="avoid-card">
+          <div class="icon-badge orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.2 11a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/><path d="M6 8 5 5h14l-1 3"/><path d="M9 12h6"/></svg></div>
           <h3>Azúcares</h3>
           <p>Gaseosas, bebidas energizantes, jugos de fruta (mejor la fruta entera), postres, tortas, bebidas lácteas reconstituidas, bollería industrial.</p>
         </div>
         <div class="avoid-card">
+          <div class="icon-badge orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11Z"/></svg></div>
           <h3>Grasas pesadas</h3>
           <p>Aceite vegetal de semillas, pollo broaster, papas fritas, mayonesas industriales, frituras en general, comida rápida.</p>
         </div>
@@ -556,27 +575,27 @@
 
       <div class="shop-grid reveal">
         <div class="shop-cat">
-          <h3>Proteínas</h3>
+          <h3><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v8a2 2 0 0 0 4 0V2"/><path d="M8 10v12"/><path d="M17 2c-1.5 0-3 1.5-3 4s1 4 1 4v12"/></svg>Proteínas</h3>
           <div class="chips"><span class="chip">Res</span><span class="chip">Cerdo</span><span class="chip">Pollo</span><span class="chip">Pescado</span><span class="chip">Pavo</span><span class="chip">Huevos</span></div>
         </div>
         <div class="shop-cat">
-          <h3>Grasas saludables</h3>
+          <h3><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11Z"/></svg>Grasas saludables</h3>
           <div class="chips"><span class="chip">AOVE</span><span class="chip">Palta fuerte</span><span class="chip">Aceitunas</span><span class="chip">Grasa de cerdo (moderada)</span><span class="chip">Pecanas</span><span class="chip">Cashew</span><span class="chip">Almendras</span></div>
         </div>
         <div class="shop-cat">
-          <h3>Lácteos</h3>
+          <h3><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 17a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2L8 3Z"/><path d="M7.5 8h9"/></svg>Lácteos</h3>
           <div class="chips"><span class="chip">Quesos</span><span class="chip">Yogur griego natural</span><span class="chip">Kéfir</span></div>
         </div>
         <div class="shop-cat">
-          <h3>Verduras</h3>
+          <h3><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13c0-6 5-10 14-10 0 9-4 14-10 14-2.5 0-4-1.5-4-4Z"/><path d="M5 19c3-3 6-5 9-9"/></svg>Verduras</h3>
           <div class="chips"><span class="chip">Espinaca</span><span class="chip">Brócoli</span><span class="chip">Vainitas</span><span class="chip">Espárragos</span><span class="chip">Coliflor</span><span class="chip">Calabacín</span><span class="chip">Alcachofa</span><span class="chip">Pimientos</span></div>
         </div>
         <div class="shop-cat">
-          <h3>Frutas</h3>
+          <h3><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8c-3 0-6 2.5-6 7 0 3.5 2.5 6 5 6 1 0 1.5-.5 2-.5s1 .5 2 .5c2.2 0 4.5-2 5-5.5.3-2-.7-4-2.5-5"/><path d="M12 8c0-2 1-3.5 3-4"/></svg>Frutas</h3>
           <div class="chips"><span class="chip">Arándanos</span><span class="chip">Frambuesas</span><span class="chip">Manzana verde</span><span class="chip">Sandía</span><span class="chip">Kiwi</span><span class="chip">Pera</span><span class="chip">Toronja</span><span class="chip">Papaya</span></div>
         </div>
         <div class="shop-cat">
-          <h3>Carbohidratos bajo índice glucémico</h3>
+          <h3><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M12 6c-2 0-3 1-3 2s1 2 3 2"/><path d="M12 6c2 0 3 1 3 2s-1 2-3 2"/><path d="M12 10c-2 0-3 1-3 2s1 2 3 2"/><path d="M12 10c2 0 3 1 3 2s-1 2-3 2"/></svg>Carbohidratos bajo índice glucémico</h3>
           <div class="chips"><span class="chip">Quinua</span><span class="chip">Avena</span><span class="chip">Camote</span><span class="chip">Lentejas</span><span class="chip">Garbanzos</span><span class="chip">Pan de masa madre</span></div>
         </div>
       </div>
@@ -592,16 +611,19 @@
       </div>
       <div class="micro-grid reveal">
         <div class="micro-card">
+          <div class="icon-badge teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
           <span class="tag">Complejo B</span>
           <h3>El motor del metabolismo</h3>
           <p>B1, B2, B3, B5, B6 y B12 son esenciales para convertir los alimentos en energía. Sin ellas, cuesta "quemar" grasas y carbohidratos, aunque comas poco.</p>
         </div>
         <div class="micro-card">
+          <div class="icon-badge teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg></div>
           <span class="tag">Cromo y Magnesio</span>
           <h3>Control de ansiedad y azúcar</h3>
           <p>El cromo mejora la sensibilidad a la insulina y reduce el antojo por dulces. El magnesio regula la glucosa y participa en más de 300 reacciones bioquímicas.</p>
         </div>
         <div class="micro-card">
+          <div class="icon-badge teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></div>
           <span class="tag">Vitamina D y Zinc</span>
           <h3>Regulación de grasa y saciedad</h3>
           <p>Niveles bajos de Vitamina D se asocian con obesidad. El zinc es vital para las hormonas del hambre, como la leptina.</p>
@@ -618,9 +640,9 @@
   <section class="wrap">
     <div class="cta-band reveal">
       <div class="eyebrow">Siguiente paso</div>
-      <h2>¿Quieres que ajustemos este plan a tu caso?</h2>
-      <p>Cada tratamiento GLP-1 es distinto. Agenda una consulta con el Dr. Wong y llevemos este plan de lo general a lo específico para ti.</p>
-      <a class="wa-btn" id="wa-cta" href="https://wa.me/51900086720?text=Hola%2C%20vi%20el%20plan%20de%20alimentaci%C3%B3n%20GLP-1%20y%20quiero%20agendar%20una%20consulta%20con%20el%20Dr.%20Wong." target="_blank" rel="noopener">
+      <h2>Esta guía es general. Tu plan personalizado te lo da el Dr. Wong.</h2>
+      <p>Estas recomendaciones no reemplazan una consulta médica. Agenda con el Dr. Wong y arma un plan ajustado a tu peso, tus exámenes y tu tratamiento.</p>
+      <a class="wa-btn" id="wa-cta" href="https://wa.me/51900086720?text=Hola%2C%20vi%20la%20gu%C3%ADa%20de%20alimentaci%C3%B3n%20GLP-1%20y%20quiero%20mi%20plan%20personalizado%20con%20el%20Dr.%20Wong." target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="#fff" opacity=".15"/><path d="M17.3 14.4c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.62.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.34-1.6-1.5-1.88-.16-.27-.02-.42.12-.56.13-.13.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.28 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.6-.65 1.82-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" fill="#fff"/></svg>
         Agendar por WhatsApp
       </a>
